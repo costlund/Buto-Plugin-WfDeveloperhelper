@@ -70,8 +70,7 @@ class PluginWfDeveloperhelper{
   }
   public function page_db_query(){
     if(!wfUser::hasRole('webmaster')){
-      echo 'Saknar rättighet!'; 
-      return null;
+      exit("Rule issue.");
     }
     $this->init();
     wfPlugin::includeonce('wf/mysql');
@@ -108,23 +107,11 @@ class PluginWfDeveloperhelper{
     wfDocument::mergeLayout($page->get());
   }
   public function page_db_query_capture(){
-    
-    exit ('sdfsdf');
-    
+    exit ('On development...');
     wfPlugin::includeonce('wf/array');
     $json = new PluginWfArray();
     $json->set('success', false);
     exit(json_encode($json->get()));
-    
-  }
-  
-  
-  /**
-   * Get yml.
-   * Example $this->getYml('/page/desktop.yml');
-   */
-  private function getYmlzzz($file){
-    return wfSettings::getSettingsAsObject('/plugin/wf/developerhelper/'.$file);
   }
   private function getYml($file = 'element/_some_file.yml'){
     wfPlugin::includeonce('wf/yml');
