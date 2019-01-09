@@ -1,0 +1,60 @@
+settings:
+  layout:
+    - html
+    - main
+  title: YML
+content:
+  json:
+    type: script
+    innerHTML: 
+  row:
+    type: div
+    attribute: {class: 'col-xs-12'}
+    innerHTML:
+      -
+        type: div
+        attribute: {class: alert alert-success, id: result}
+        innerHTML: ''
+      -
+        type: widget
+        data:
+          plugin: 'wf/form_v2'
+          method: render
+          data:
+            url: 'db_query_capture'
+            ajax_element: 'result'
+            ajax: true
+            submit_value: Create
+            id: frm_db_query
+            items:
+              sql:
+                type: text
+                label: SQL
+                mandatory: true
+                default: ''
+            success_redirect: /page/home
+#            buttons:
+#              -
+#                type: a
+#                innerHTML: Cancel
+#                attribute:
+#                  href: '/'
+#                  class: 'btn btn-default'
+            
+#      -
+#        type: form
+#        attribute: {method: post}
+#        innerHTML:
+#          -
+#            type: textarea
+#            attribute: {id: sql, name: sql, style: 'width:100%;height:200px'}
+#            innerHTML: 'select id, name from my_table;'
+#          -
+#            type: input
+#            attribute: {type: submit}
+#          -
+#            type: textarea
+#            attribute: {id: result, name: result, style: 'width:100%;height:200px'}
+#            innerHTML: ''
+#            
+            

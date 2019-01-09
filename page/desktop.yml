@@ -1,0 +1,10 @@
+settings:
+  layout:
+    - html
+    - main
+  title: Developerhelper
+content:
+  json:
+    type: script
+    innerHTML: 
+  

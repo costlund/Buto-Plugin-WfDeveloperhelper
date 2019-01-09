@@ -1,0 +1,34 @@
+settings:
+  layout:
+    - html
+    - main
+  title: YML
+content:
+  json:
+    type: script
+    innerHTML: 
+  row:
+    type: div
+    attribute: {class: 'col-xs-12'}
+    innerHTML:
+      -
+        type: form
+        attribute: {method: post}
+        innerHTML:
+          -
+            type: textarea
+            attribute: {id: column, name: column, style: 'width:100%;height:200px'}
+            innerHTML: 'rows with data...'
+          -
+            type: input
+            attribute: {type: submit}
+          -
+            type: p
+            attribute: {id: alert_result}
+            innerHTML: '_'
+          -
+            type: textarea
+            attribute: {id: column_unique, name: column_unique, style: 'width:100%;height:200px'}
+            innerHTML: ''
+            
+            

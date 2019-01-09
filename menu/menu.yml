@@ -1,0 +1,65 @@
+settings:
+  fluit: true
+brand:
+  lable: 'Developerhelper'
+  href: "javascript: location.href = '/'+app.class+'/desktop';"
+navbar:
+#  -
+#    class: 'navbar'
+#    item:
+#      -
+#        lable: Get create script
+#        href: "javascript:PluginWfBootstrapjs.modal({id: 'get_create_script', url: '/[class]/get_create_script', lable: 'Files', size: 'lg'});"
+#  -
+#    class: 'navbar'
+#    element:
+#      type: p
+#      attribute:
+#        class: 'navbar-text'
+#        style: 'font-weight:bold'
+#        onclick: "location.reload();"
+#      innerHTML: 'Sit/Mysqlmanager'
+  -
+    class: 'navbar-right'
+    element:
+      type: p
+      attribute:
+        class: 'navbar-text'
+      innerHTML: 'globals:_SESSION/email'
+  -
+    class: 'navbar'
+    item:
+      -
+        lable: DB
+        href: '#'
+        item:
+          -
+            lable: Query db
+            href: '#'
+            onclick: "location.href = '/'+app.class+'/db_query';"
+            settings:
+              role:
+                item:
+                  - webmaster
+      -
+        lable: Convert
+        href: '#'
+        item:
+          -
+            lable: Json to YML
+            href: '#'
+            onclick: "location.href = '/'+app.class+'/json_to_yml';"
+            settings:
+              role:
+                item:
+                  - client
+          -
+            lable: Unique rows
+            href: '#'
+            onclick: "location.href = '/'+app.class+'/unique_rows';"
+            settings:
+              role:
+                item:
+                  - client
+    
+    
