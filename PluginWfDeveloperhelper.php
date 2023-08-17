@@ -17,7 +17,7 @@ class PluginWfDeveloperhelper{
     if(!wfUser::hasRole("webmaster")){
       exit('Role webmaster is required!');
     }
-    wfArray::set($GLOBALS, 'sys/layout_path', '/plugin/wf/developerhelper/layout');
+    wfGlobals::setSys('layout_path', '/plugin/wf/developerhelper/layout');
     wfPlugin::includeonce('wf/array');
     $this->settings = new PluginWfArray(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/settings'));
   }
@@ -84,8 +84,8 @@ class PluginWfDeveloperhelper{
       foreach ($rows as $key => $sql) {
         if($sql){
           $row_str = '';
-          $sql = str_replace('[uid]', wfCrypt::getUid(), $sql);
-//          $sql = str_replace('[pwd]', generatePassword(), $sql);
+          $sql = wfPhpfunc::str_replace('[uid]', wfCrypt::getUid(), $sql);
+//          $sql = wfPhpfunc::str_replace('[pwd]', generatePassword(), $sql);
           $rs = $mysql->runSql($sql, null);
           if(wfRequest::get('skip_count')!='on'){
             $row_str .= $rs['num_rows']."\t";
@@ -95,7 +95,7 @@ class PluginWfDeveloperhelper{
               $row_str .= $value3."\t";
             }
           }
-          $row_str = substr($row_str, 0, strlen($row_str)-1);
+          $row_str = wfPhpfunc::substr($row_str, 0, wfPhpfunc::strlen($row_str)-1);
           $str .= $row_str."\n";
         }else{
           $str .= "\n";
